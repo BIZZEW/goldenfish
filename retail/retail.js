@@ -3,9 +3,16 @@ window.onload = function () {
     initPage();
 }
 
+var picker
+
 function openPicker(type) {
+    if (picker) {
+        picker.hide()
+        picker.dispose()
+    }
+
     var options = []
-    var picker = new mui.PopPicker()
+    picker = new mui.PopPicker()
 
     console.log(type)
     switch (type) {
@@ -41,12 +48,18 @@ function openPicker(type) {
         console.log(selectItems[0].value);
         var x = document.getElementsByName(type);
         x[0].value = selectItems[0].text
+        picker.dispose()
     })
 }
 
 function openCascadePicker(type) {
+    if (picker) {
+        picker.hide()
+        picker.dispose()
+    }
+
     var options = []
-    var picker = new mui.PopPicker({
+    picker = new mui.PopPicker({
         layer: 2
     });
 
@@ -98,17 +111,24 @@ function openCascadePicker(type) {
 
         var x = document.getElementsByName(type);
         x[0].value = address
+        picker.dispose()
     })
 }
 
 function openDtPicker(type) {
+    if (picker) {
+        picker.hide()
+        picker.dispose()
+    }
+
     console.log(type)
-    var dtPicker = new mui.DtPicker();
-    dtPicker.show(function (selectItems) {
+    picker = new mui.DtPicker();
+    picker.show(function (selectItems) {
         console.log(selectItems.y);//{text: "2016",value: 2016} 
         console.log(selectItems.m);//{text: "05",value: "05"} 
         var x = document.getElementsByName(type);
         x[0].value = selectItems.y.text + '-' + selectItems.m.text + '-' + selectItems.d.text
+        picker.dispose()
     })
 }
 
