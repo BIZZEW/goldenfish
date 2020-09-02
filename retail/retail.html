@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="retail.css">
+    <link rel="stylesheet" href="iconfont.css">
+    <link rel="stylesheet" href="picker/dist/css/mui.picker.min.css">
+
+    <script type="text/javascript" src="retail.js"></script>
+    <script type="text/javascript" src="mui.js"></script>
+    <script type="text/javascript" src="picker/dist/js/mui.picker.min.js"></script>
+</head>
+
+<body>
+    <div class="um-win" id="index">
+        <div class="um-content">
+            <div class="ultra-item">
+                <label class="ultra-label">用户</label>
+                <div class="ultra-content"><input value="测试展厅" type="text" name="username" readonly></div>
+            </div>
+            <div class="ultra-item">
+                <label class="ultra-label">门店</label>
+                <div class="ultra-content"><input value="上海公司展厅样机库" type="text" name="store" readonly></div>
+            </div>
+
+            <div class="section-title">请填选以下项</div>
+
+            <div class="ultra-item" onclick="openPicker('retailtype')">
+                <label class="ultra-label">零售类型</label>
+                <div class="ultra-content">
+                    <input placeholder="零售类型" type="text" name="retailtype" readonly>
+                    <i class="icon iconfont icon-arrowright" style="font-size:24px"></i>
+                </div>
+            </div>
+
+            <div class="ultra-item" onclick="openDtPicker('buydate')">
+                <label class="ultra-label">购机日期</label>
+                <div class="ultra-content">
+                    <input placeholder="购机日期" type="text" name="buydate" readonly>
+                    <i class="icon iconfont icon-arrowright" style="font-size:24px"></i>
+                </div>
+            </div>
+
+            <div class="ultra-item" onclick="openPicker('saletype')">
+                <label class="ultra-label">销售类型</label>
+                <div class="ultra-content">
+                    <input placeholder="销售类型" type="text" name="saletype" readonly>
+                    <i class="icon iconfont icon-arrowright" style="font-size:24px"></i>
+                </div>
+            </div>
+
+            <div class="ultra-item">
+                <label class="ultra-label">产品型号</label>
+                <div class="ultra-content">
+                    <input placeholder="产品型号" type="text" name="producttype">
+                    <i class="icon iconfont icon-scancode" style="font-size:24px"></i>
+                    <i class="icon iconfont icon-query" style="font-size:24px;margin-right: 18%;"
+                        onclick="openPicker('producttype')"></i>
+                </div>
+            </div>
+
+            <div class="ultra-item">
+                <label class="ultra-label">购买数量</label>
+                <div class="ultra-content"><input placeholder="购买数量" type="number" name="buynum"></div>
+            </div>
+
+            <div class="ultra-item">
+                <label class="ultra-label">成交价格</label>
+                <div class="ultra-content"><input placeholder="成交价格" type="text" name="dealprice"></div>
+            </div>
+
+            <div class="ultra-item">
+                <label class="ultra-label">成交金额</label>
+                <div class="ultra-content"><input placeholder="成交金额" type="text" name="dealamount" readonly></div>
+            </div>
+
+            <div class="ultra-item">
+                <label class="ultra-label">顾客姓名</label>
+                <div class="ultra-content"><input placeholder="顾客姓名" type="text" name="customername"></div>
+            </div>
+
+            <div class="ultra-item">
+                <label class="ultra-label">顾客电话1</label>
+                <div class="ultra-content"><input placeholder="顾客电话1" type="text" name="customertel1"></div>
+            </div>
+
+            <div class="ultra-item">
+                <label class="ultra-label">顾客电话2</label>
+                <div class="ultra-content"><input placeholder="顾客电话2" type="text" name="customertel2"></div>
+            </div>
+
+            <div class="ultra-item" onclick="openCascadePicker('address')">
+                <label class="ultra-label">地址</label>
+                <div class="ultra-content">
+                    <input placeholder="地址" type="text" name="address" readonly>
+                    <i class="icon iconfont icon-arrowright" style="font-size:24px"></i>
+                </div>
+            </div>
+
+            <!-- <div class="ultra-item">
+                <label class="ultra-label">市</label>
+                <div class="ultra-content"><input placeholder="市" type="text" name="city">
+                    <i class="icon iconfont icon-arrowright" style="font-size:24px"></i>
+                </div>
+            </div>
+
+            <div class="ultra-item">
+                <label class="ultra-label">县</label>
+                <div class="ultra-content"><input placeholder="县" type="text" name="county">
+                    <i class="icon iconfont icon-arrowright" style="font-size:24px"></i>
+                </div>
+            </div>
+
+            <div class="ultra-item">
+                <label class="ultra-label">镇</label>
+                <div class="ultra-content"><input placeholder="镇" type="text" name="town">
+                    <i class="icon iconfont icon-arrowright" style="font-size:24px"></i>
+                </div>
+            </div> -->
+
+            <div class="ultra-item">
+                <label class="ultra-label">联系地址</label>
+                <div class="ultra-content"><input placeholder="联系地址" type="text" name="contactaddress"></div>
+            </div>
+
+            <div class="ultra-item">
+                <label class="ultra-label">备注说明</label>
+                <div class="ultra-content"><input placeholder="备注说明" type="text" name="note"></div>
+            </div>
+
+            <div class="ultra-item">
+                <label class="ultra-label">发票号</label>
+                <div class="ultra-content"><input placeholder="发票号" type="text" name="invoicenum">
+                    <i class="icon iconfont icon-scancode" style="font-size:24px"></i>
+                </div>
+            </div>
+
+            <div class="ultra-item">
+                <label class="ultra-label">上传照片</label>
+                <div class="ultra-content" @click="goPicCollection()" id="goPicCollection">
+                    <div class="info-middle" style="padding-left: 10px;">
+                        已上传照片 <span v-text="picNum"></span>&nbsp;/&nbsp;10
+                    </div>
+                    <i class="icon iconfont icon-uploadPic" style="font-size:24px"></i>
+                </div>
+            </div>
+
+            <!-- <div class="ultra-bottom-btns" v-if="!inputStatus">
+                <div class="ultra-bottom-btn" @click="letscancode()">
+                    <div class="icon iconfont icon-scancode"></div>
+                    <div>扫&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;描</div>
+                </div>
+                <div class="ultra-bottom-btn" @click="submitForm()">
+                    <div class="icon iconfont icon-submit"></div>
+                    <div style="margin-left: 5px;">提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;交</div>
+                </div>
+            </div> -->
+
+            <!--堆号下拉选择控件-->
+            <!-- <mt-popup name="popupVisiblePileNo" position="bottom">
+                <mt-picker :slots="pileNos" :show-toolbar=true value-key="name" @change="onValueChange"
+                    :visible-item-count="7" ref="pileNoPicker">
+                    <span @click="popupVisiblePileNo= false" class="custom-toolbar-btn cancel-btn">取消</span>
+                    <span @click="confirmChangePileNo" class="custom-toolbar-btn confirm-btn">确认</span>
+                </mt-picker>
+            </mt-popup> -->
+
+            <!--物料品种下拉选择控件-->
+            <!-- <mt-popup name="popupVisibleMaterialType" position="bottom">
+                <mt-picker :slots="materialTypes" :show-toolbar=true value-key="name" @change="onValueChange"
+                    :visible-item-count="7" ref="materialTypePicker">
+                    <span @click="popupVisibleMaterialType= false" class="custom-toolbar-btn cancel-btn">取消</span>
+                    <span @click="confirmChangeMaterialType" class="custom-toolbar-btn confirm-btn">确认</span>
+                </mt-picker>
+            </mt-popup> -->
+
+            <!--质量等级下拉选择控件-->
+            <!-- <mt-popup name="popupVisibleQualityLvl" position="bottom">
+                <mt-picker :slots="qualityLvls" :show-toolbar=true value-key="name" @change="onValueChange"
+                    :visible-item-count="7" ref="qualityLvlPicker">
+                    <span @click="popupVisibleQualityLvl= false" class="custom-toolbar-btn cancel-btn">取消</span>
+                    <span @click="confirmChangeQualityLvl" class="custom-toolbar-btn confirm-btn">确认</span>
+                </mt-picker>
+            </mt-popup> -->
+
+            <!--退货下拉选择控件-->
+            <!-- <mt-popup name="popupVisibleRefund" position="bottom">
+                <mt-picker :slots="refunds" :show-toolbar=true value-key="name" @change="onValueChange"
+                    :visible-item-count="7" ref="refundPicker">
+                    <span @click="popupVisibleRefund= false" class="custom-toolbar-btn cancel-btn">取消</span>
+                    <span @click="confirmChangeRefund" class="custom-toolbar-btn confirm-btn">确认</span>
+                </mt-picker>
+            </mt-popup> -->
+
+            <!--退货原因下拉选择控件-->
+            <!-- <mt-popup name="popupVisibleRefundReason" position="bottom">
+                <mt-picker :slots="refundReasons" :show-toolbar=true value-key="name" @change="onValueChange"
+                    :visible-item-count="7" ref="refundReasonPicker">
+                    <span @click="popupVisibleRefundReason= false" class="custom-toolbar-btn cancel-btn">取消</span>
+                    <span @click="confirmChangeRefundReason" class="custom-toolbar-btn confirm-btn">确认</span>
+                </mt-picker>
+            </mt-popup> -->
+        </div>
+    </div>
+</body>
+
+</html>
