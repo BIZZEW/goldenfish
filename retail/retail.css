@@ -2,6 +2,10 @@ body{
     background:#efefef
 }
 
+.mui-poppicker.mui-active {
+    z-index: 9999;
+}
+
 .section-title {
     height: 50px;
     font-size: 17px;
