@@ -4,7 +4,7 @@ body{
 }
 
 .searchBar{
-    height: 88px;
+    height: 40px;
     background: white;
     padding: 10px 3%;
     position: relative;
@@ -17,6 +17,23 @@ body{
 	height: 40px;
     background: #efefef;
     border-radius: 8px;
+
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+}
+
+.searchBar .searchInput input{
+    width: 86%;
+    height: 100%;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    padding: 0 2%;
+    resize: none;
+    margin: 0;
+    background: transparent;
 }
 
 .searchBar .searchInput .searchIcon{
@@ -125,6 +142,13 @@ body{
     height: 95px;
     width: 100%;
     font-size: 13px;
+}
+
+.ultraList .ultraItem .itemContent table td{
+    max-width: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .ultraList .ultraItem .itemFooter{
