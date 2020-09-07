@@ -7,10 +7,11 @@ body{
     height: 40px;
     background: white;
     padding: 10px 3%;
-    position: relative;
+    position: fixed;
     box-shadow: 0px 2px 5px 0px #8e8e8e7a;
     width: 94%;
     z-index: 1;
+    top: 0;
 }
 
 .searchBar .searchInput{
@@ -64,6 +65,7 @@ body{
     height: 100%;
     background: #efefef;
     overflow-y: scroll;
+    margin: 60px 0;
 }
 
 .ultraList .ultraItem{
